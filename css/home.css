@@ -1,0 +1,366 @@
+/* HOME.CSS - Base styles for Soko Huru Market */
+/* This replaces style.css as the main stylesheet */
+
+/* GLOBAL RESET & BASE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+}
+
+body {
+    background: #f5f7fb;
+}
+
+/* HEADER */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 64px;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    z-index: 10;
+}
+
+/* LAYOUT */
+.container {
+    display: flex;
+    height: 100vh;
+    padding-top: 64px;
+    overflow: hidden;
+}
+
+/* MAIN AREA */
+#app {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    min-width: 0;
+}
+
+/* MARKET HEADER WITH SORT OPTIONS */
+.market-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.market-header h1 {
+    font-size: 28px;
+    color: #1a1a2e;
+    margin-bottom: 10px;
+}
+
+.market-header p {
+    color: #666;
+}
+
+.product-count {
+    color: #666;
+    font-size: 14px;
+}
+
+.sort-options {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sort-options label {
+    color: #666;
+    font-size: 14px;
+}
+
+.sort-options select {
+    padding: 8px 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background: white;
+    cursor: pointer;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.sort-options select:focus {
+    border-color: #1a1a2e;
+    box-shadow: 0 0 0 2px rgba(26, 26, 46, 0.1);
+}
+
+/* LOADING STATE */
+.loading-container {
+    text-align: center;
+    padding: 60px;
+    color: #666;
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #1a1a2e;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 20px;
+}
+
+/* EMPTY STATE */
+.empty-state {
+    text-align: center;
+    padding: 60px;
+    color: #999;
+    font-size: 16px;
+}
+
+.empty-state h3 {
+    margin: 20px 0 10px;
+    color: #666;
+}
+
+.empty-icon {
+    font-size: 64px;
+    margin-bottom: 20px;
+    opacity: 0.5;
+}
+
+.empty-suggestion {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #999;
+}
+
+/* ERROR STATE */
+.error-state {
+    text-align: center;
+    padding: 60px;
+}
+
+.error-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.retry-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #1a1a2e;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.retry-btn:hover {
+    background: #16213e;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    10% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    90% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+}
+
+/* Search Notification */
+.search-notification {
+    animation: fadeInOut 2s ease;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+/* Utility Classes */
+.text-center {
+    text-align: center;
+}
+
+.mt-10 {
+    margin-top: 10px;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.mb-10 {
+    margin-bottom: 10px;
+}
+
+.mb-20 {
+    margin-bottom: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Responsive Design for Base Layout */
+@media (max-width: 768px) {
+    header {
+        padding: 0 15px;
+    }
+
+    .market-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .market-header h1 {
+        font-size: 24px;
+    }
+
+    .sort-options {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .sort-options select {
+        flex: 1;
+    }
+
+    .loading-container,
+    .empty-state,
+    .error-state {
+        padding: 40px 20px;
+    }
+
+    .empty-icon {
+        font-size: 48px;
+    }
+}
+
+@media (max-width: 480px) {
+    .market-header h1 {
+        font-size: 20px;
+    }
+
+    .product-count {
+        font-size: 12px;
+    }
+
+    .sort-options label {
+        font-size: 12px;
+    }
+
+    .sort-options select {
+        font-size: 12px;
+        padding: 6px 10px;
+    }
+
+    .loading-container,
+    .empty-state,
+    .error-state {
+        padding: 30px 15px;
+    }
+
+    .empty-icon {
+        font-size: 40px;
+    }
+
+    .empty-state h3 {
+        font-size: 18px;
+    }
+
+    .retry-btn {
+        padding: 8px 16px;
+        font-size: 12px;
+    }
+}
+
+/* Print Styles */
+@media print {
+    header,
+    #navicons,
+    .sort-options,
+    .quick-view-btn {
+        display: none;
+    }
+
+    .container {
+        padding-top: 0;
+    }
+
+    #app {
+        padding: 0;
+        overflow: visible;
+    }
+
+    .product-card {
+        break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #ddd;
+    }
+}

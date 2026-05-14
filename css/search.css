@@ -1,0 +1,242 @@
+/* Additional styles for search.js */
+
+/* Search Wrapper */
+.search-wrapper {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    position: relative;
+}
+
+/* Search Input */
+#searchfield input {
+    width: 300px;
+    padding: 10px 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 25px;
+    outline: none;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+#searchfield input:focus {
+    border-color: #1a1a2e;
+    box-shadow: 0 0 0 3px rgba(26, 26, 46, 0.1);
+    width: 350px;
+}
+
+/* Search Button */
+.search-btn {
+    background: #1a1a2e;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.search-btn:hover {
+    background: #16213e;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.search-btn:active {
+    transform: translateY(0);
+}
+
+.search-btn.searching {
+    transform: scale(0.95);
+    opacity: 0.8;
+}
+
+/* Clear Button */
+.clear-btn {
+    position: absolute;
+    right: 110px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: #999;
+    transition: color 0.3s ease;
+    padding: 5px;
+}
+
+.clear-btn:hover {
+    color: #e74c3c;
+}
+
+/* Search Highlight */
+.search-highlight {
+    background-color: #ffeb3b;
+    color: #1a1a2e;
+    padding: 0 2px;
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+/* Focused wrapper effect */
+.search-wrapper.focused input {
+    border-color: #2ecc71;
+    box-shadow: 0 0 0 3px rgba(46, 204, 113, 0.1);
+}
+
+/* Search Notification Animations */
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOutRight {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+/* Responsive Search */
+@media (max-width: 768px) {
+    .search-wrapper {
+        gap: 8px;
+    }
+
+    #searchfield input {
+        width: 200px;
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+
+    #searchfield input:focus {
+        width: 220px;
+    }
+
+    .search-btn {
+        padding: 8px 15px;
+        font-size: 13px;
+    }
+
+    .clear-btn {
+        right: 90px;
+        font-size: 16px;
+    }
+
+    .search-notification {
+        font-size: 12px;
+        padding: 8px 16px;
+        top: 70px;
+        right: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .search-wrapper {
+        gap: 5px;
+    }
+
+    #searchfield input {
+        width: 150px;
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+    /* Admin Notification Animation */
+    @keyframes adminGlow {
+        0%, 100% {
+            box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.7);
+        }
+        50% {
+            box-shadow: 0 0 20px 10px rgba(102, 126, 234, 0.7);
+        }
+    }
+
+    @keyframes slideDown {
+        from {
+            transform: translate(-50%, -50%) translateY(-50px);
+            opacity: 0;
+        }
+        to {
+            transform: translate(-50%, -50%) translateY(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes slideUp {
+        from {
+            transform: translate(-50%, -50%) translateY(0);
+            opacity: 1;
+        }
+        to {
+            transform: translate(-50%, -50%) translateY(-50px);
+            opacity: 0;
+        }
+    }
+
+    .admin-notification-content {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .admin-icon {
+        font-size: 32px;
+        animation: spin 0.5s ease;
+    }
+
+    @keyframes spin {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    .admin-message {
+        font-size: 18px;
+        letter-spacing: 1px;
+    }
+
+    /* Secret code hint styling */
+    #search-input {
+        transition: all 0.3s ease;
+    }
+
+    #search-input:focus {
+        border-color: #667eea;
+        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+    }
+
+    /* Placeholder hint */
+    #search-input::placeholder {
+        color: #999;
+        font-size: 12px;
+        opacity: 0.7;
+    }
+
+    #searchfield input:focus {
+        width: 160px;
+    }
+
+    .search-btn {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+
+    .clear-btn {
+        right: 75px;
+        font-size: 14px;
+    }
+}

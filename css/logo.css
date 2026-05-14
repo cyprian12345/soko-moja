@@ -1,0 +1,79 @@
+/* LOGO STYLES */
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: #1a1a2e;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Hover effects */
+.logo:hover {
+    transform: scale(1.05);
+    color: #2ecc71;
+}
+
+/* Active/click effect */
+.logo:active {
+    transform: scale(0.98);
+}
+
+/* Optional: Add decorative underline on hover */
+.logo::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #2ecc71;
+    transition: width 0.3s ease;
+}
+
+.logo:hover::after {
+    width: 100%;
+}
+
+/* Optional: Add icon animation */
+.logo:hover .logo-icon {
+    transform: rotate(15deg);
+}
+
+/* Logo icon styling (if you separate icon from text) */
+.logo-icon {
+    display: inline-block;
+    transition: transform 0.3s ease;
+    font-size: 24px;
+}
+
+/* Responsive logo */
+@media (max-width: 768px) {
+    .logo {
+        font-size: 18px;
+    }
+
+    .logo-icon {
+        font-size: 20px;
+    }
+}
+
+/* Animation for page load */
+.logo-load {
+    animation: logoSlideIn 0.5s ease;
+}
+
+@keyframes logoSlideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

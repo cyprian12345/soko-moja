@@ -1,0 +1,322 @@
+/* NAVIGATION STYLES - Modern Clean Design */
+
+/* Main Navigation Container */
+#navicons {
+    width: 90px;
+    min-width: 90px;
+    flex-shrink: 0;
+    background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 0;
+    gap: 8px;
+    border-right: 1px solid rgba(0, 0, 0, 0.05);
+    overflow-y: auto;
+    overflow-x: hidden;
+    z-index: 5;
+}
+
+/* Custom scrollbar */
+#navicons::-webkit-scrollbar {
+    width: 3px;
+}
+
+#navicons::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#navicons::-webkit-scrollbar-thumb {
+    background: #ddd;
+    border-radius: 10px;
+}
+
+#navicons::-webkit-scrollbar-thumb:hover {
+    background: #bbb;
+}
+
+/* Navigation Item - Clean Style */
+.nav-item {
+    width: 74px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 10px 6px;
+    border-radius: 16px;
+    position: relative;
+    margin: 2px 0;
+}
+
+.nav-item:hover {
+    background: rgba(0, 0, 0, 0.04);
+    transform: translateY(-1px);
+}
+
+.nav-item.active {
+    background: rgba(46, 204, 113, 0.08);
+    color: #2ecc71;
+}
+
+.nav-item.active .nav-name {
+    color: #2ecc71;
+    font-weight: 600;
+}
+
+.nav-item.active .nav-placeholder {
+    background: rgba(46, 204, 113, 0.12);
+    color: #2ecc71;
+}
+
+/* Category Image */
+.nav-image {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 6px;
+    border: 2px solid transparent;
+    transition: all 0.25s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+.nav-item:hover .nav-image {
+    border-color: #2ecc71;
+    transform: scale(1.03);
+    box-shadow: 0 4px 12px rgba(46, 204, 113, 0.15);
+}
+
+.nav-item.active .nav-image {
+    border-color: #2ecc71;
+    box-shadow: 0 0 0 3px rgba(46, 204, 113, 0.15);
+}
+
+/* Placeholder */
+.nav-placeholder {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #f0f2f5 0%, #e9ecef 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin-bottom: 6px;
+    transition: all 0.25s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.nav-item:hover .nav-placeholder {
+    background: linear-gradient(135deg, #e9ecef 0%, #e0e4e8 100%);
+    transform: scale(1.03);
+}
+
+.nav-item.active .nav-placeholder {
+    background: rgba(46, 204, 113, 0.12);
+    color: #2ecc71;
+}
+
+/* Category Name */
+.nav-name {
+    font-size: 11px;
+    font-weight: 500;
+    color: #5a6a7a;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 68px;
+    transition: all 0.2s ease;
+    letter-spacing: 0.3px;
+}
+
+.nav-item.active .nav-name {
+    color: #2ecc71;
+    font-weight: 600;
+}
+
+/* Loading State */
+.loading-nav {
+    text-align: center;
+    padding: 30px 10px;
+}
+
+.loading-spinner-small {
+    width: 32px;
+    height: 32px;
+    border: 3px solid #e9ecef;
+    border-top-color: #2ecc71;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+    margin: 0 auto 10px;
+}
+
+/* Empty State */
+.empty-nav {
+    text-align: center;
+    padding: 30px 10px;
+    opacity: 0.5;
+}
+
+.empty-nav .nav-placeholder {
+    margin: 0 auto 10px;
+    background: #f0f2f5;
+    font-size: 28px;
+}
+
+.empty-nav .nav-name {
+    color: #999;
+    font-size: 10px;
+}
+
+/* Active Indicator - Transparent Dot */
+.nav-item.active::before {
+    content: '';
+    position: absolute;
+    top: 12px;
+    right: 8px;
+    width: 6px;
+    height: 6px;
+    background: #2ecc71;
+    border-radius: 50%;
+    opacity: 0.6;
+}
+
+/* Tooltip - Clean Bubble */
+.nav-item:hover::after {
+    content: attr(data-category-name);
+    position: absolute;
+    left: 82px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #2c3e50;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 500;
+    white-space: nowrap;
+    z-index: 100;
+    pointer-events: none;
+    opacity: 0;
+    animation: fadeInTooltip 0.2s ease forwards;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    letter-spacing: 0.3px;
+}
+
+/* Animations */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes fadeInTooltip {
+    from {
+        opacity: 0;
+        transform: translateY(-50%) translateX(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(-50%) translateX(0);
+    }
+}
+
+/* Hover fade effect */
+#navicons:hover .nav-item:not(:hover) {
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+}
+
+#navicons .nav-item {
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Category color accents */
+.nav-item[data-category-name="All"] .nav-placeholder {
+    background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+    color: #2e7d32;
+}
+
+.nav-item[data-category-name="All"].active .nav-placeholder {
+    background: rgba(46, 204, 113, 0.15);
+}
+
+.nav-item[data-category-name="Electronics"] .nav-placeholder {
+    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+    color: #1565c0;
+}
+
+.nav-item[data-category-name="Clothing"] .nav-placeholder {
+    background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
+    color: #c2185b;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #navicons {
+        width: 75px;
+        min-width: 75px;
+        padding: 16px 0;
+        gap: 6px;
+    }
+
+    .nav-item {
+        width: 64px;
+        padding: 8px 4px;
+        border-radius: 14px;
+    }
+
+    .nav-image,
+    .nav-placeholder {
+        width: 42px;
+        height: 42px;
+        font-size: 20px;
+    }
+
+    .nav-name {
+        font-size: 10px;
+        max-width: 60px;
+    }
+
+    .nav-item:hover::after {
+        display: none;
+    }
+
+    .nav-item.active::before {
+        width: 5px;
+        height: 5px;
+        top: 8px;
+        right: 6px;
+    }
+}
+
+@media (max-width: 480px) {
+    #navicons {
+        width: 65px;
+        min-width: 65px;
+        padding: 12px 0;
+        gap: 4px;
+    }
+
+    .nav-item {
+        width: 56px;
+        padding: 6px 3px;
+        border-radius: 12px;
+    }
+
+    .nav-image,
+    .nav-placeholder {
+        width: 38px;
+        height: 38px;
+        font-size: 18px;
+        margin-bottom: 4px;
+    }
+
+    .nav-name {
+        font-size: 9px;
+        max-width: 52px;
+    }
+}
+
+/* Smooth scrolling */
+#navicons {
+    scroll-behavior: smooth;
+}
