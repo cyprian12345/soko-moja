@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Soko Huru Market</title>
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+<!-- Login Overlay -->
+<div id="loginOverlay" class="login-overlay">
+    <div class="login-modal">
+        <div class="login-header">
+            <div class="login-logo">🔐 Admin Access</div>
+        </div>
+        <div class="login-body">
+            <div class="login-icon">🛒</div>
+            <h2>Soko Huru Market</h2>
+            <p>Enter administrator password to continue</p>
+            <form id="loginForm" onsubmit="return verifyPassword(event)">
+                <input type="password" id="adminPassword" placeholder="Enter password" autofocus>
+                <button type="submit" class="login-btn">Unlock Admin Panel</button>
+                <div id="loginError" class="login-error"></div>
+            </form>
+            <div class="login-hint">
+                <small>💡 Default password: <strong>admin123</strong></small>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Main Admin Content -->
+<div id="adminContent" style="display: none;">
+    <header>
+        <div class="logo">🛒 Soko Huru Admin</div>
+        <div id="searchfield"></div>
+        <div class="admin-user">
+            <span class="user-name">Admin</span>
+            <button class="logout-icon" onclick="logout()" title="Logout">🚪</button>
+        </div>
+    </header>
+
+    <div class="container">
+        <aside id="navicons"></aside>
+        <main id="app"></main>
+    </div>
+</div>
+
+<!-- Make sure all scripts are loaded in this order -->
+<script src="js/admin-auth.js"></script>
+<script src="js/admin-nav.js"></script>
+<script src="js/admin-products.js"></script>
+<script src="js/admin-categories.js"></script>
+<script src="js/admin-stats.js"></script>
+<script src="js/admin-settings.js"></script>
+<script src="js/admin-search.js"></script>
+
+<script>
+    // Initialize after all scripts loaded
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log("DOM loaded, checking auth...");
+        if (typeof checkAuth === 'function') {
+            checkAuth();
+        }
+    });
+</script>

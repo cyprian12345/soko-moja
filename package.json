@@ -1,0 +1,24 @@
+{
+  "name": "soko-huru",
+  "version": "1.0.0",
+  "description": "Self-contained market CMS using Node.js and SQLite",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "market",
+    "sqlite",
+    "nodejs",
+    "express",
+    "cms"
+  ],
+  "author": "Soko Huru Dev",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "sqlite3": "^5.1.6"
+  }
+}
